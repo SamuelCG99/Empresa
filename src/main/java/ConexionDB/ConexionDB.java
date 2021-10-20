@@ -1,38 +1,27 @@
 package ConexionDB;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
 
 
 public class ConexionDB {
-
-	Connection con = null;
-	
-	public Connection getConexion() {
-		try {		
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/empNominas?user=root&password=");
-			if(con != null) {
-				System.out.println("Conexion OK " + con);
-			}
-		}catch(Exception e) {
-			
-		}
-		return con;
-	}
-	
-	public Connection conectar() {
-		return con;
-	}
-	
-	public void desconectar() {
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	 private static BasicDataSource dataSource = null;
+	 
+	 private static DataSource getDataSource() {
+	  if (dataSource == null) {
+	   dataSource = new BasicDataSource();
+	   dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+	   dataSource.setUrl("jdbc:mysql://localhost/empNominas?user=root&password=");
+	  }
+	  return dataSource;
+	 }
+	 
+	 public static Connection getConnection() throws SQLException {
+	  return getDataSource().getConnection();
+	 }
 	
 	public static void main(String[] args) {
 		
