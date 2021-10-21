@@ -107,7 +107,6 @@ public class MainController extends HttpServlet {
 		if (opcion.equals("guardar")) {
 			EmpleadoDAO empDAO = new EmpleadoDAO();
 			Empleado emp = new Empleado();
-			emp.setId(Integer.parseInt(request.getParameter("id")));
 			emp.setNombre(request.getParameter("nombre"));
 			emp.setDni(request.getParameter("dni"));
 			emp.setSexo(request.getParameter("sexo"));
@@ -126,6 +125,7 @@ public class MainController extends HttpServlet {
 		} else if (opcion.equals("editar")) {
 			Empleado emp = new Empleado();
 			EmpleadoDAO empDAO = new EmpleadoDAO();
+			emp.setId(Integer.parseInt(request.getParameter("id")));
 			emp.setNombre(request.getParameter("nombre"));
 			emp.setDni(request.getParameter("dni"));
 			emp.setSexo(request.getParameter("sexo"));

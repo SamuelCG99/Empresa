@@ -10,10 +10,10 @@
 <body>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Editar Producto</title>
+<title>Editar Empleado</title>
 </head>
 <body>
- <h1>Editar Producto</h1>
+ <h1>Editar Empleado</h1>
  <form action="MainController" method="post">
   <c:set var="empleado" value="${empleado}"></c:set>
   <input type="hidden" name="opcion" value="editar">

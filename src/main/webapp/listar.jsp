@@ -17,14 +17,12 @@
    <td>Sexo</td>
    <td>Categoria</td>
    <td>Años</td>
-   <td>Accion</td>
+   <td colspan="2">Accion</td>
   </tr>
   <c:forEach var="empleado" items="${lista}">
   <tr>
     <td>
-     <a href="MainController?opcion=editar&id=<c:out value="${empleado.id}"></c:out>">
       <c:out value="${empleado.id}"></c:out>
-     </a>
     </td>
     <td><c:out value="${empleado.nombre}"></c:out></td>
     <td><c:out value="${empleado.dni}"></c:out></td>
@@ -36,6 +34,7 @@
       Eliminar 
      </a>
     </td>
+    <td><a href="MainController?opcion=editar&id=<c:out value="${empleado.id}"></c:out>">Editar</a></td>
   </tr>
   </c:forEach>
  </table>

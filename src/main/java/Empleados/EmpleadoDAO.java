@@ -52,7 +52,7 @@ public class EmpleadoDAO {
 		connection = obtenerConexion();
 		try {
 			connection.setAutoCommit(false);
-			sql = "UPDATE empleados SET nombre=?, dni=?, sexo=?, categoria=?, numAnnyos=? WHERE id=?";
+			sql = "UPDATE empleados SET nombre=?,dni=?,sexo=?,categoria=?,numAnnyos=? WHERE id=?";
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, emp.getNombre());
 			ps.setString(2, emp.getDni());
@@ -60,7 +60,6 @@ public class EmpleadoDAO {
 			ps.setInt(4, emp.getCategoria());
 			ps.setInt(5, emp.getAnnyo());
 			ps.setInt(6, emp.getId());
-
 			estadoOperacion = ps.executeUpdate() > 0;
 			connection.commit();
 			ps.close();
@@ -133,7 +132,7 @@ public class EmpleadoDAO {
 	  connection = obtenerConexion();
 	 
 	  try {
-	   sql = "SELECT * FROM productos WHERE id =?";
+	   sql = "SELECT * FROM empleados WHERE id = ?";
 	   ps = connection.prepareStatement(sql);
 	   ps.setInt(1, idEmpleado);
 	 

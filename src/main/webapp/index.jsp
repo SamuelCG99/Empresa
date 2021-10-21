@@ -13,7 +13,7 @@
 			<td><a href="MainController?opcion=crear">Crear un Empleado</a></td>		
 		</tr>
 		<tr>
-			<td><a href="MainController?opcion=listar">Listar Empleados</a>
+			<td><a href="MainController?opcion=listar">Listar Empleados</a></td>
 		</tr>
 	</table>
 </body>
